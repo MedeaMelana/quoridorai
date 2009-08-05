@@ -1,0 +1,54 @@
+Quoridor
+Programmed by Martijn van Steenbergen
+In the Summer of 2006
+
+Build date: @build.date
+Revision: @rev
+
+For more information, please visit:
+http://martijn.van.steenbergen.nl/projects/quoridor/
+
+
+Game rules
+
+Quoridor is a turn-based game for two players. At your turn, you may either move your pawn or place a wall, if you have any walls left. If your pawn reaches the other side of the board before your opponent's does, you win. If your pawn is adjacent to your opponent's, you may jump over it, either straight or at a right angle. You are not allowed to place a wall if it would block either player from reaching their goal.
+
+
+How to use
+
+Simply click on the board to move your pawn or place a wall.
+
+
+Write your own brain!
+
+If you would like to write your own Quoridor-playing brain, you can! Simply download the Quoridor SDK and read the manual included on how to get started. Send your brain to me and I might include it in the next release.
+
+
+Background
+
+The most of the Summer of 2006 I spent in Le Thoronet, in the southeast of France. On August 3rd, we went to Aups, where I bought a copy of the board game Quoridor: a dark wooden board with four coloured pawns (the original game can be played by either 2 or 4 players) and 20 light wooden walls. The game turned out to be very fun to play, and soon I wondered how hard it would be to build a computer program that could play Quoridor. This is the result.
+
+
+Credits
+
+Quoridor was invented by Miko Marchesi and published as a physical, wooden board game by Gigamic.
+
+Thanks to John Farrell (http://sologamer.blogspot.com/) for a helpful suggestion on how the mouse location determines the wall position.
+
+This software was developed using Sun Microsystems' Java 5.0, the Eclipse SDK and Apache Ant on a white Apple MacBook.
+
+The Quoridor logo was created using OmniGraffle.
+
+The "stone" sound clip was stolen from the gGo application written by Peter Strempel, while the "yahoo" sound clips were stolen from the famous Tic Tac Toe applet written by Arthur van Hoff.
+
+
+Feedback
+
+If you have any questions, suggestions or comments, please contact me at Martijn@van.Steenbergen.nl. Your feedback is appreciated!
+
+
+License
+
+This program is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 2.5 license. For the full license text, please visit:
+
+http://creativecommons.org/licenses/by-nc-sa/2.5/nl/
