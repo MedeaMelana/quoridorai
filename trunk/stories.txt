@@ -1,0 +1,16 @@
+- elastiek
+- animated board transitions
+- network support
+- brains using shadows
+- persistence
+- documentation
+- show brain descriptions
+- different colors
+- alpha-beta pruning
+- bridge detection
+- button keystrokes
+- create screenshot button
+- vertical wall shadows
+- brain progress indication
+- ggo-like replay slider
+

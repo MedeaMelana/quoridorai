@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html>
+
+<head>
+<title>Quoridor Manual</title>
+<meta name="author" content="Martijn van Steenbergen"/>
+
+<style type="text/css">
+
+pre {
+  border: 1px dashed grey;
+  padding: 1em;
+  padding-right: 4em;
+  display: table;
+  margin-left: 24px;
+  background-color: #ffffef;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>Quoridor</h1>
+
+<h2>Launching Quoridor</h2>
+
+<p>Double-click the <code>@jar</code> file to launch Quoridor.</p>
+
+<h2>Writing your own Quoridor Brain</h2>
+
+<p>First, add the <code>@jar</code> archive to your classpath.</p>
+
+<p>Then create a subclass of <code>martijn.quoridor.brains.Brain</code>. For example:</p>
+
+<pre>
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Set;
+
+import martijn.quoridor.brains.Brain;
+import martijn.quoridor.model.Board;
+import martijn.quoridor.model.Jump;
+import martijn.quoridor.model.Move;
+import martijn.quoridor.model.Position;
+
+/** RandomBrain always moves the player's pawn to a random position. */
+public class RandomBrain extends Brain {
+
+	@Override
+	public Move getMove(Board board) {
+		Set&lt;Position&gt; positions = board.getTurn().getJumpPositions();
+		List&lt;Position&gt; list = new LinkedList&lt;Position&gt;(positions);
+		Collections.shuffle(list);
+		return new Jump(list.get(0));
+	}
+
+}
+</pre>
+
+<h2>Making your brain appear in the application</h2>
+
+<p>First, create an implementation of <code>martijn.quoridor.brains.BrainFactory</code>:</p>
+
+<pre>
+import java.util.List;
+
+import martijn.quoridor.brains.Brain;
+import martijn.quoridor.brains.BrainFactory;
+import martijn.quoridor.brains.DefaultBrainFactory;
+
+/** A BrainFactory that creates the default brains followed by RandomBrain. */
+public class MyBrainFactory implements BrainFactory {
+
+	public void addBrains(List&lt;Brain&gt; brains) {
+		// Add the default brains.
+		new DefaultBrainFactory().addBrains(brains);
+
+		// Add RandomBrain.
+		brains.add(new RandomBrain());
+	}
+
+}
+</pre>
+
+<p>Second, launch <code>QuoridorApplication</code> using your factory:</p>
+
+<pre>
+import martijn.quoridor.QuoridorApplication;
+
+public class Application {
+
+	/** Launches Quoridor with RandomBrain. */
+	public static void main(String[] args) {
+		QuoridorApplication.launch(new MyBrainFactory());
+	}
+
+}
+</pre>
+
+<h2>API Documentation</h2>
+
+<p>Please see the <a href="javadoc/index.html">Javadoc pages</a> for a detailed description of the API.</p>
+
+<h2>License</h2>
+
+<p><a href="http://creativecommons.org/licenses/by-nc-sa/2.5/nl/">Creative Commons (CC) 2006 Martijn van Steenbergen</a></p>
+
+</body>
+
+</html>
